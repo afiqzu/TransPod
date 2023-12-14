@@ -150,7 +150,7 @@ export const SignUpForm = () => {
                         Already have an account?
                         <Link
                             to="/sign-in"
-                            className="text-tertiary-500 text-small-semibold ml-2"
+                            className="text-tertiary-500 font-medium ml-2"
                         >
                             Log in
                         </Link>

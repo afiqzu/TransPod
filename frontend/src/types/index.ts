@@ -20,3 +20,10 @@ export type INewUser = {
     username: string
     password: string
 }
+
+export type PodcastTrending = {
+    id:string
+    author: string
+    title: string
+    artwork: string
+};
