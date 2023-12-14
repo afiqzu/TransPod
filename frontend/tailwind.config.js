@@ -2,9 +2,8 @@
 export default  {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
+    './src/pages/**/*.{ts,tsx}',
+    './src/components/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
 	],
   theme: {
@@ -17,9 +16,11 @@ export default  {
     },
     extend: {
       colors: {
-        'primary-400' : '#BBFFDE',
+        'primary-400' : '#b8d9c9',
         'primary-500': '#56E09E',
-        'primary-600': '#117F4A',
+        'primary-600': '#4dca8e',
+        'primary-700': '#45b37e',
+        'tertiary-500': '#615eff',
         'dark-1': '#000000',
         'dark-2': '#09090A',
         'dark-3': '#101012',
@@ -56,5 +57,5 @@ export default  {
       },
     },
   },
-  plugins: [],
+  plugins: [require('tailwindcss-animate')],
 }
