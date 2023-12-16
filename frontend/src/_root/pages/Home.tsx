@@ -1,7 +1,7 @@
-import {Input} from "@/components/ui/input.tsx";
 import {useGetTrending} from "@/lib/tanstack-query/queriesAndMutations.ts";
 import TrendingCard, {TrendingCardSkeleton} from "@/components/shared/TrendingCard.tsx";
 import {PodcastTrending} from "@/types";
+import {SearchField} from "@/components/shared/SearchField.tsx";
 
 
 const Home = () => {
@@ -22,15 +22,16 @@ const Home = () => {
                     Ideal for podcasters, journalists, and content creators.
                     Get reliable transcriptions without the fluff - try TransPod now.
                 </p>
-                <Input className='mt-10 rounded-full' placeholder='Search for podcasts'/>
+                <SearchField/>
                 <p className='font-medium text-xl mt-10'>
                     See what's trending
                 </p>
                 <div className='grid grid-cols-3 gap-4 mt-5 mb-10'>
-                    { isPending? Array.from({ length: numberOfSkeletons }, (_, index) => (
-                        <TrendingCardSkeleton key={index} />
-                    )) : trending?.map((podcast:PodcastTrending) => (
-                        <TrendingCard key={podcast.id} title={podcast.title} image={podcast.artwork} author={podcast.author}/>
+                    {isPending ? Array.from({length: numberOfSkeletons}, (_, index) => (
+                        <TrendingCardSkeleton key={index}/>
+                    )) : trending?.map((podcast: PodcastTrending) => (
+                        <TrendingCard key={podcast.id} title={podcast.title} image={podcast.artwork}
+                                      author={podcast.author}/>
                     ))}
                 </div>
             </div>

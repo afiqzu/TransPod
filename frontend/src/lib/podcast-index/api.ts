@@ -1,13 +1,14 @@
 import {PodcastTrending} from "@/types";
 import BASE_URL from "@/lib/podcast-index/config.ts";
 
-export async function searchByTerm(term:string) {
+export async function searchByTerm(term: string | undefined) {
     try {
         const response = await fetch(BASE_URL +`/search?term=${term}`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
         const results = await response.json();
+        console.log(results.feeds)
         return results.feeds;
     } catch (error) {
         console.error('Error fetching podcasts:', error);

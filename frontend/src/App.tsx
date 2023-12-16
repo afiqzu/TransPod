@@ -5,6 +5,7 @@ import SignUpForm from "@/_auth/forms/SignUpForm.tsx";
 import Home from "@/_root/pages/Home.tsx";
 import RootLayout from "@/_root/RootLayout.tsx";
 import {Toaster} from "@/components/ui/toaster.tsx";
+import SearchResults from "@/_root/pages/SearchResults.tsx";
 
 function App() {
     return (
@@ -20,6 +21,8 @@ function App() {
                 {/* private routes */}
                 <Route element={<RootLayout />}>
                     <Route index element={<Home />} />
+                    <Route path="/search/:term" element={<SearchResults />} />
+
                 </Route>
             </Routes>
         </main>

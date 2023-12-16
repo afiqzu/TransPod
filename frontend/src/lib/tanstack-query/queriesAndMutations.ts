@@ -22,7 +22,7 @@ export const useSignOutAccount = () => {
     })
 }
 
-export const useSearchByTerm = (term:string) => {
+export const useSearchByTerm = (term: string | undefined) => {
     return useQuery({
         queryKey:[searchByTerm, term],
         queryFn: () => searchByTerm(term),

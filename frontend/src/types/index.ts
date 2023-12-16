@@ -27,3 +27,15 @@ export type PodcastTrending = {
     title: string
     artwork: string
 };
+
+
+
+export type PodcastSearch = {
+    id:string
+    author: string
+    title: string
+    description: string
+    artwork: string
+    categories: string[]
+
+};
