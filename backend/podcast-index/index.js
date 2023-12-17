@@ -23,11 +23,31 @@ app.get('/search', async (req, res) => {
 
 app.get('/trending', async (req, res) => {
     try {
-        const maxPod = req.query.max ? req.query.max : 9;
+        const maxPod = req.query.max ? req.query.max : 12;
         const results = await api.podcastsTrending(max = maxPod, since = null, lang = 'en,en-us,en-gb,en-ca');
         res.json(results);
     } catch (error) {
         res.status(500).send('Internal Server Error');
+    }
+});
+
+app.get('/podcasts/byfeedid', async (req, res) => {
+    try {
+        const feedId = req.query.id
+        const results = await api.podcastsByFeedId(feedId)
+        res.json(results)
+    } catch (error) {
+        res.status(500).send('Internal Server Error')
+    }
+});
+
+app.get('/episodes/byfeedid', async (req, res) => {
+    try {
+        const feedId = req.query.id
+        const results = await api.episodesByFeedId(feedId, null, 10)
+        res.json(results)
+    } catch (error) {
+        res.status(500).send('Internal Server Error')
     }
 });
 

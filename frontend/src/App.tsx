@@ -1,32 +1,33 @@
-import {Route, Routes} from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import AuthLayout from "@/_auth/AuthLayout.tsx";
 import SignInForm from "@/_auth/forms/SignInForm.tsx";
 import SignUpForm from "@/_auth/forms/SignUpForm.tsx";
 import Home from "@/_root/pages/Home.tsx";
 import RootLayout from "@/_root/RootLayout.tsx";
-import {Toaster} from "@/components/ui/toaster.tsx";
+import { Toaster } from "@/components/ui/toaster.tsx";
 import SearchResults from "@/_root/pages/SearchResults.tsx";
+import Podcast from "@/_root/pages/Podcast.tsx";
 
 function App() {
-    return (
-        <main>
-            <Toaster/>
-            <Routes>
-                {/* public routes */}
-                <Route element={<AuthLayout />}>
-                    <Route path="/sign-in" element={<SignInForm />} />
-                    <Route path="/sign-up" element={<SignUpForm />} />
-                </Route>
+  return (
+    <main>
+      <Toaster />
+      <Routes>
+        {/* public routes */}
+        <Route element={<AuthLayout />}>
+          <Route path="/sign-in" element={<SignInForm />} />
+          <Route path="/sign-up" element={<SignUpForm />} />
+        </Route>
 
-                {/* private routes */}
-                <Route element={<RootLayout />}>
-                    <Route index element={<Home />} />
-                    <Route path="/search/:term" element={<SearchResults />} />
-
-                </Route>
-            </Routes>
-        </main>
-    )
+        {/* private routes */}
+        <Route element={<RootLayout />}>
+          <Route index element={<Home />} />
+          <Route path="/search/:term" element={<SearchResults />} />
+          <Route path="/podcast/:id" element={<Podcast />} />
+        </Route>
+      </Routes>
+    </main>
+  );
 }
 
-export default App
+export default App;

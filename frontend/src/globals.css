@@ -3,24 +3,24 @@
 @tailwind utilities;
 
 @layer base {
-    * {
-        @apply box-border list-none p-0 m-0 scroll-smooth;
-    }
+  * {
+    @apply box-border list-none p-0 m-0 scroll-smooth;
+  }
 
-    body {
-        @apply bg-light-2 text-black min-h-screen font-helvetica;
-    }
+  body {
+    @apply bg-light-2 text-black min-h-screen font-helvetica;
+  }
 }
 
 @layer components {
-    /* SHADCN COMPONENTS */
+  /* SHADCN COMPONENTS */
 
-    /* Button */
-    .shad-button_primary {
-        @apply bg-primary-600 hover:bg-primary-700 text-light-1 font-bold flex gap-2 !important;
-    }
+  /* Button */
+  .shad-button_primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-light-1 text-[11px] sm:text-sm font-bold flex gap-2 !important;
+  }
 
-    .shad-dropdown_menu {
-        @apply
-    }
+  .shad-dropdown_menu {
+    @apply;
+  }
 }
