@@ -16,10 +16,11 @@ export default {
     },
     extend: {
       colors: {
-        "primary-400": "#b8d9c9",
+        "primary-400": "#BBFFDE",
         "primary-500": "#56E09E",
         "primary-600": "#4dca8e",
         "primary-700": "#45b37e",
+        "primary-800": "#117F4A",
         "tertiary-500": "#615eff",
         "dark-1": "#000000",
         "dark-2": "#09090A",
@@ -50,10 +51,20 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
+        fadein: {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        },
+        'loop-scroll': {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-100%)' },
+        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        fadein: 'fadein 1s ease-out',
+        'loop-scroll': 'loop-scroll 50s linear infinite',
       },
     },
   },

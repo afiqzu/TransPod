@@ -6,7 +6,7 @@ import {
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { INewUser } from "@/types";
 import {
-  getEpisodesByFeedId,
+  getEpisodesByFeedId, getEpisodesById,
   getPodcastById,
   podcastsTrending,
   searchByTerm,
@@ -58,6 +58,14 @@ export const useGetEpisodesByFeedId = (id: string | undefined) => {
   return useQuery({
     queryKey: ["getEpisodesByFeedId", id],
     queryFn: () => getEpisodesByFeedId(id),
+    enabled: !!id,
+  });
+};
+
+export const useGetEpisodesById = (id: string | undefined) => {
+  return useQuery({
+    queryKey: ["getEpisodesById", id],
+    queryFn: () => getEpisodesById(id),
     enabled: !!id,
   });
 };

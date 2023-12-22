@@ -7,6 +7,7 @@ import RootLayout from "@/_root/RootLayout.tsx";
 import { Toaster } from "@/components/ui/toaster.tsx";
 import SearchResults from "@/_root/pages/SearchResults.tsx";
 import Podcast from "@/_root/pages/Podcast.tsx";
+import Episode from "@/_root/pages/Episode.tsx";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/search/:term" element={<SearchResults />} />
           <Route path="/podcast/:id" element={<Podcast />} />
+          <Route path="/episode/:id" element={<Episode />} />
         </Route>
       </Routes>
     </main>

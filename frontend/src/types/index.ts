@@ -52,3 +52,11 @@ export type Episode = {
   datePublishedPretty: string;
   duration?: number;
 };
+
+export type EpisodeDetails = {
+  podcastName: string;
+  episodeId: string;
+  image: string;
+  title: string;
+  description: string;
+};

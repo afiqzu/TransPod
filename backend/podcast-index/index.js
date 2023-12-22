@@ -51,6 +51,16 @@ app.get('/episodes/byfeedid', async (req, res) => {
     }
 });
 
+app.get('/episodes/byid', async (req, res) => {
+    try {
+        const id = req.query.id
+        const results = await api.episodesById(id)
+        res.json(results)
+    } catch (error) {
+        res.status(500).send('Internal Server Error')
+    }
+});
+
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });

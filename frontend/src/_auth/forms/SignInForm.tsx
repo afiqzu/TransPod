@@ -21,8 +21,11 @@ export const SignInForm = () => {
   const { toast } = useToast();
   const { checkAuthUser } = useUserContext();
   const navigate = useNavigate();
-  const { mutateAsync: signInAccount, isPending: isSigningIn } =
-    useSignInAccount();
+  const {
+    mutateAsync: signInAccount,
+    isPending: isSigningIn,
+    isSuccess,
+  } = useSignInAccount();
 
   // 1. Define your form.
   const form = useForm<z.infer<typeof SignInValidation>>({
@@ -93,11 +96,7 @@ export const SignInForm = () => {
             )}
           />
           <Button type="submit" className="shad-button_primary">
-            {isSigningIn ? (
-              <div className="flex-center gap-2">Signing in...</div>
-            ) : (
-              "Sign in"
-            )}
+            {isSuccess || isSigningIn ? "Signing in..." : "Sign In"}
           </Button>
           <p className="text-small-regular text-dark-3 text-center mt-2">
             Don't have an account?

@@ -1,5 +1,7 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -17,4 +19,18 @@ export function formatDuration(seconds: number | undefined): string {
   } else {
     return `${hours} h ${minutes} min`;
   }
+}
+
+export default function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
+export function removeHtmlTags(input: string): string {
+  return input.replace(/<[^>]*>/g, ' ');
 }

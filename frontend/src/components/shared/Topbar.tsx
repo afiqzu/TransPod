@@ -27,7 +27,7 @@ const Topbar = () => {
   };
 
   return (
-    <div className="bg-white flex justify-between gap-6 items-center py-2 px-5 sm:p-5 fixed sm:static w-full top-0">
+    <div className="bg-white bg-opacity-90 backdrop-blur-sm z-10 flex justify-between gap-6 items-center border-b-2 py-2 px-5 sm:p-5 fixed w-full top-0">
       <div
         className="flex items-center cursor-pointer"
         onClick={handleLogoClick}
@@ -35,7 +35,7 @@ const Topbar = () => {
         <img src="/assets/logo.png" width={40} height={40} alt="logo" />
         <p className="text-2xl font-medium ml-1 hidden lg:block">TransPod</p>
       </div>
-      <div className="rounded-full w-full max-w-2xl mx-auto">
+      <div className="rounded-full w-full max-w-xl ml-5 mr-auto">
         <SearchField />
       </div>
       <div className="hover:underline cursor-pointer" onClick={handleSignOut}>
