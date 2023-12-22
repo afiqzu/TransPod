@@ -15,7 +15,7 @@ const Episode = () => {
   return (
     <>
       {isPending || isTranscribing ? (
-        <div className="flex flex-col h-fit w-screen justify-center items-center">
+        <div className="flex h-fit w-screen flex-col items-center justify-center">
           <l-ring
             size="80"
             stroke="5"
@@ -23,15 +23,15 @@ const Episode = () => {
             speed="2"
             color="black"
           ></l-ring>
-          <p className="font-medium text-2xl mt-5">Transcribing episode...</p>
+          <p className="mt-5 text-2xl font-medium">Transcribing episode...</p>
         </div>
       ) : !episode || !episode.title ? (
-        <div className="flex h-fit gap-3 w-full items-center justify-center text-2xl font-medium">
+        <div className="flex h-fit w-full items-center justify-center gap-3 text-2xl font-medium">
           Episode not found <Frown />
         </div>
       ) : (
-        <div className="flex flex-col h-[calc(100vh-70px)] sm:h-[calc(100vh-80px)]">
-          <div className="grid grid-cols-1 sm:grid-cols-2 h-full overflow-scroll">
+        <div className="flex h-[calc(100vh-70px)] flex-col sm:h-[calc(100vh-80px)]">
+          <div className="grid h-full grid-cols-1 overflow-scroll sm:grid-cols-2">
             <EpisodeContent />
             <div className="hidden sm:block">
               <Chat />

@@ -5,18 +5,17 @@ import LoadingScreen from "@/components/shared/LoadingScreen.tsx";
 const AuthLayout = () => {
   const { isAuthenticated, isLoading } = useUserContext();
   return (
-      <>
-        {isLoading ? (
-            <LoadingScreen />
-        ) : isAuthenticated ? (
-            <Navigate to="/" />
-        ) : (
-            <section className="flex flex-1 h-screen bg-white justify-center items-center flex-col">
-              <Outlet />
-            </section>
-        )}
-      </>
-
+    <>
+      {isLoading ? (
+        <LoadingScreen />
+      ) : isAuthenticated ? (
+        <Navigate to="/" />
+      ) : (
+        <section className="flex h-screen flex-1 flex-col items-center justify-center bg-white">
+          <Outlet />
+        </section>
+      )}
+    </>
   );
 };
 export default AuthLayout;

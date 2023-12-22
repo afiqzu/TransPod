@@ -4,7 +4,7 @@ import ChatPrompts from "@/components/chat/ChatPrompts.tsx";
 
 const Chat = () => {
   return (
-    <div className="flex flex-col h-full bg-white border-l-2 p-3 overflow-scroll">
+    <div className="flex h-full flex-col overflow-scroll border-l-2 bg-white p-3">
       <ChatMessage />
       <div className="mt-auto">
         <ChatPrompts />

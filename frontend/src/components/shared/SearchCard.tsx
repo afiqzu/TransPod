@@ -22,7 +22,7 @@ const SearchCard = ({ podcast }: SearchCardProps) => {
 
   return (
     <div
-      className="flex justify-center bg-white rounded-md w-full p-3 mb-2 cursor-pointer sm:cursor-default sm:mb-5"
+      className="mb-2 flex w-full cursor-pointer justify-center rounded-md bg-white p-3 sm:mb-5 sm:cursor-default"
       onClick={handleMobileClick}
     >
       <div className="flex max-w-[60px] sm:max-w-[150px] md:max-w-[250px]">
@@ -32,23 +32,23 @@ const SearchCard = ({ podcast }: SearchCardProps) => {
           alt={podcast.title}
         />
       </div>
-      <div className="flex flex-col ml-5 w-full">
-        <p className="self-start font-medium text-[14px] sm:text-[18px]">
+      <div className="ml-5 flex w-full flex-col">
+        <p className="self-start text-[14px] font-medium sm:text-[18px]">
           {podcast.title}
         </p>
-        <p className="self-start text-[12px] sm:text-[14px] mb-2">
+        <p className="mb-2 self-start text-[12px] sm:text-[14px]">
           {podcast.author}
         </p>
-        <div className="hidden sm:flex gap-2 mb-2 w-full flex-wrap">
+        <div className="mb-2 hidden w-full flex-wrap gap-2 sm:flex">
           {podcast.categories &&
             Object.values(podcast.categories).map((name, index) => (
               <CategoryTab key={index} category={name} />
             ))}
         </div>
-        <p className="flex-wrap hidden sm:block w-full self-start text-[14px] mb-5 break-words">
+        <p className="mb-5 hidden w-full flex-wrap self-start break-words text-[14px] sm:block">
           {podcast.description}
         </p>
-        <div className="hidden sm:block sm:mt-auto">
+        <div className="hidden sm:mt-auto sm:block">
           <Button
             className="shad-button_primary ml-auto"
             onClick={handlePodcastClick}
@@ -64,11 +64,11 @@ export default SearchCard;
 
 export const SearchCardSkeleton = () => {
   return (
-    <div className="flex justify-center rounded-md w-full sm:py-3 mb-5">
+    <div className="mb-5 flex w-full justify-center rounded-md sm:py-3">
       <Skeleton className="h-[60px] w-full sm:h-[250px] sm:w-[320px]" />
-      <div className="hidden sm:flex sm:flex-col sm:ml-5 w-full">
-        <Skeleton className="hidden sm:block sm:h-[30px] sm:w-[400px] sm:mb-4" />
-        <Skeleton className=" hidden sm:block sm:h-[30px] sm:w-[400px] sm:mb-4" />
+      <div className="hidden w-full sm:ml-5 sm:flex sm:flex-col">
+        <Skeleton className="hidden sm:mb-4 sm:block sm:h-[30px] sm:w-[400px]" />
+        <Skeleton className=" hidden sm:mb-4 sm:block sm:h-[30px] sm:w-[400px]" />
         <Skeleton className="hidden sm:block sm:h-[60px] sm:w-full" />
       </div>
     </div>

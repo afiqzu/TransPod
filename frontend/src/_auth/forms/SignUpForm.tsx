@@ -69,16 +69,16 @@ export const SignUpForm = () => {
 
   return (
     <Form {...form}>
-      <div className="w-420 px-4 flex justify-center items-center flex-col">
-        <div className="flex gap-1 m-0 p-0">
+      <div className="flex w-420 flex-col items-center justify-center px-4">
+        <div className="m-0 flex gap-1 p-0">
           <img src="/assets/logo.png" alt="logo" height={30} width={34} />
-          <p className="text-3xl font-medium text-black m-0 ml-1">TransPod</p>
+          <p className="m-0 ml-1 text-3xl font-medium text-black">TransPod</p>
         </div>
-        <h2 className="pt-0 font-bold text-2xl mt-10">Create your account</h2>
+        <h2 className="mt-10 pt-0 text-2xl font-bold">Create your account</h2>
 
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="flex flex-col gap-5 w-full mt-4"
+          className="mt-4 flex w-full flex-col gap-5"
         >
           <FormField
             control={form.control}
@@ -139,9 +139,9 @@ export const SignUpForm = () => {
               "Sign up"
             )}
           </Button>
-          <p className="text-small-regular text-dark-3 text-center mt-2">
+          <p className="text-small-regular mt-2 text-center text-dark-3">
             Already have an account?
-            <Link to="/sign-in" className="text-tertiary-500 font-medium ml-2">
+            <Link to="/sign-in" className="ml-2 font-medium text-tertiary-500">
               Log in
             </Link>
           </p>

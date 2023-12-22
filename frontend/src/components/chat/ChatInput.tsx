@@ -35,7 +35,7 @@ const ChatInput = () => {
               <FormControl>
                 <Input
                   placeholder="Message TransPod..."
-                  className="rounded-xl mr-3"
+                  className="mr-3 rounded-xl"
                   {...field}
                 />
               </FormControl>

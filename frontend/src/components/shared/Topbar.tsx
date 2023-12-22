@@ -27,18 +27,18 @@ const Topbar = () => {
   };
 
   return (
-    <div className="bg-white bg-opacity-90 backdrop-blur-sm z-10 flex justify-between gap-6 items-center border-b-2 py-2 px-5 sm:p-5 fixed w-full top-0">
+    <div className="fixed top-0 z-10 flex w-full items-center justify-between gap-6 border-b-2 bg-white bg-opacity-90 px-5 py-2 backdrop-blur-sm sm:p-5">
       <div
-        className="flex items-center cursor-pointer"
+        className="flex cursor-pointer items-center"
         onClick={handleLogoClick}
       >
         <img src="/assets/logo.png" width={40} height={40} alt="logo" />
-        <p className="text-2xl font-medium ml-1 hidden lg:block">TransPod</p>
+        <p className="ml-1 hidden text-2xl font-medium lg:block">TransPod</p>
       </div>
-      <div className="rounded-full w-full max-w-xl ml-5 mr-auto">
+      <div className="ml-5 mr-auto w-full max-w-xl rounded-full">
         <SearchField />
       </div>
-      <div className="hover:underline cursor-pointer" onClick={handleSignOut}>
+      <div className="cursor-pointer hover:underline" onClick={handleSignOut}>
         <LogOut />
       </div>
     </div>

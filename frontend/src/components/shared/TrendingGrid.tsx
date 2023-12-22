@@ -16,11 +16,11 @@ const TrendingGrid = () => {
         ))
       ) : (
         <div>
-          <p className=" flex font-medium text-2xl ml-10 sm:ml-[100px] mb-3">
+          <p className="mb-3 ml-10 flex text-2xl font-medium sm:ml-[100px]">
             Trending podcasts
           </p>
           <div className="group flex gap-5 overflow-hidden">
-            <div className="flex mt-5 mb-10 gap-5 animate-loop-scroll group-hover:paused">
+            <div className="mb-10 mt-5 flex animate-loop-scroll gap-5 group-hover:paused">
               {trending?.map((podcast: PodcastTrending) => (
                 <TrendingCard
                   key={podcast.id}
@@ -32,7 +32,7 @@ const TrendingGrid = () => {
               ))}
             </div>
             <div
-              className="flex mt-5 mb-10 gap-5 animate-loop-scroll group-hover:paused"
+              className="mb-10 mt-5 flex animate-loop-scroll gap-5 group-hover:paused"
               aria-hidden="true"
             >
               {trending?.map((podcast: PodcastTrending) => (

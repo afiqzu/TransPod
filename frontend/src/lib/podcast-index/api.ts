@@ -1,4 +1,4 @@
-import {Episode, PodcastTrending} from "@/types";
+import { Episode, PodcastTrending } from "@/types";
 import BASE_URL from "@/lib/podcast-index/config.ts";
 
 export async function searchByTerm(term: string | undefined) {
@@ -82,14 +82,14 @@ export async function getEpisodesById(id: string | undefined) {
       throw new Error("Network response was not ok");
     }
     const results = await response.json();
-    const episode = results.episode
-    console.log(episode)
+    const episode = results.episode;
+    console.log(episode);
     return {
       podcastName: episode.feedTitle,
       episodeId: episode.id,
       image: episode.feedImage,
       title: episode.title,
-      description: episode.description
+      description: episode.description,
     };
   } catch (error) {
     console.error("Error fetching trending podcasts:", error);

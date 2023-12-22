@@ -22,16 +22,16 @@ const TrendingCard = ({ id, image, title, author }: TrendingCardProps) => {
   return (
     <div
       ref={ref}
-      className="flex flex-col bg-white rounded-md cursor-pointer hover:scale-105 hover:transition-all"
+      className="flex cursor-pointer flex-col rounded-md bg-white hover:scale-105 hover:transition-all"
       onClick={handlePodcastClick}
     >
       <img
         src={image}
         alt={title}
-        className="min-w-[150px] min-h-[150px] sm:min-h-[300px] sm:min-w-[300px] rounded-t-md"
+        className="min-h-[150px] min-w-[150px] rounded-t-md sm:min-h-[300px] sm:min-w-[300px]"
       />
-      <div className="px-4 pt-3 pb-5">
-        <p className="self-start font-medium text-[18px] line-clamp-3">
+      <div className="px-4 pb-5 pt-3">
+        <p className="line-clamp-3 self-start text-[18px] font-medium">
           {title}
         </p>
         <p className="self-start text-[14px]">{author}</p>
@@ -43,7 +43,7 @@ export default TrendingCard;
 
 export const TrendingCardSkeleton = () => {
   return (
-    <div className="flex flex-col items-center rounded-md w-auto p-2 mt-4 gap-2">
+    <div className="mt-4 flex w-auto flex-col items-center gap-2 rounded-md p-2">
       <Skeleton className="h-[300px] w-[300px] " />
       <Skeleton className="h-[18px] w-[300px]" />
       <Skeleton className="h-[14px] w-[300px]" />

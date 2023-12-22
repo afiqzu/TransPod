@@ -5,14 +5,14 @@ type LeftPodcastBarProps = {
 };
 const EpisodeInfo = ({ episode }: LeftPodcastBarProps) => {
   return (
-    <div className="flex p-3 w-full bottom-0 bg-white border-t-2 z-50">
+    <div className="bottom-0 z-50 flex w-full border-t-2 bg-white p-3">
       <img
-        className="object-scale-down flex justify-center w-[40px] sm:w-[70px]"
+        className="flex w-[40px] justify-center object-scale-down sm:w-[70px]"
         src={episode.image}
         alt={episode.title}
       />
-      <div className='flex flex-col mx-3'>
-        <p className="self-start font-medium text-[12px] sm:text-[16px] line-clamp-1">
+      <div className="mx-3 flex flex-col">
+        <p className="line-clamp-1 self-start text-[12px] font-medium sm:text-[16px]">
           {episode.title}
         </p>
         <p className="self-start text-[12px] sm:text-[16px]">

@@ -4,11 +4,11 @@
 
 @layer base {
   * {
-    @apply box-border list-none p-0 m-0 scroll-smooth;
+    @apply m-0 box-border list-none scroll-smooth p-0;
   }
 
   body {
-    @apply bg-light-2 text-black min-h-screen font-helvetica;
+    @apply min-h-screen bg-light-2 font-helvetica text-black;
   }
 }
 
@@ -17,14 +17,12 @@
 
   /* Button */
   .shad-button_primary {
-    @apply bg-primary-600 hover:bg-primary-700 text-light-1 text-[11px] sm:text-sm font-bold flex gap-2 !important;
+    @apply flex gap-2 bg-primary-600 text-[11px] font-bold text-light-1 hover:bg-primary-700 sm:text-sm !important;
   }
 
   .shad-button_dark {
-    @apply bg-black hover:bg-gray-700 text-light-1 text-[16px] sm:text-xl font-normal sm:font-medium flex gap-2 !important;
+    @apply flex gap-2 bg-black text-[16px] font-normal text-light-1 hover:bg-gray-700 sm:text-xl sm:font-medium !important;
   }
-
-
 }
 
 .logos-slide {
@@ -50,6 +48,6 @@
   }
 
   .h-fit {
-    @apply h-[calc(100vh-70px)] sm:h-[calc(100vh-80px)]
+    @apply h-[calc(100vh-70px)] sm:h-[calc(100vh-80px)];
   }
 }

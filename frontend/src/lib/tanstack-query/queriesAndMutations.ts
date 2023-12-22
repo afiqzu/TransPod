@@ -6,7 +6,8 @@ import {
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { INewUser } from "@/types";
 import {
-  getEpisodesByFeedId, getEpisodesById,
+  getEpisodesByFeedId,
+  getEpisodesById,
   getPodcastById,
   podcastsTrending,
   searchByTerm,

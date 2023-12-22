@@ -37,7 +37,7 @@ export function SearchField() {
               <FormControl>
                 <Input
                   placeholder="Search for Podcasts"
-                  className="rounded-full mr-3"
+                  className="mr-3 rounded-full"
                   {...field}
                 />
               </FormControl>

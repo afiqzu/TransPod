@@ -3,7 +3,7 @@ type CategoryTabProps = {
 };
 const CategoryTab = ({ category }: CategoryTabProps) => {
   return (
-    <div className="bg-light-2 rounded-full px-3 py-1 text-[13px]">
+    <div className="rounded-full bg-light-2 px-3 py-1 text-[13px]">
       {category}
     </div>
   );

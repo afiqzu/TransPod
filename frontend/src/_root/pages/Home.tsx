@@ -7,22 +7,22 @@ const Home = () => {
   });
 
   return (
-    <div className="ml-auto mr-auto flex flex-col items-center mt-[220px]">
-      <div className="max-w-3xl flex flex-col items-center mt-10 mb-[150px]">
-        <p className="font-bold text-3xl sm:text-6xl text-center px-4">
+    <div className="ml-auto mr-auto mt-[220px] flex flex-col items-center">
+      <div className="mb-[150px] mt-10 flex max-w-3xl flex-col items-center">
+        <p className="px-4 text-center text-3xl font-bold sm:text-6xl">
           Get accurate podcast transcription with TransPod.
         </p>
-        <p className="mt-[40px] max-w-2xl text-center px-4 mb-[50px]">
+        <p className="mb-[50px] mt-[40px] max-w-2xl px-4 text-center">
           TransPod offers hassle-free podcast transcription. Ideal for
           podcasters, journalists, and content creators. Get reliable
           transcriptions without the fluff.
         </p>
       </div>
-      <div className="flex flex-col h-max w-full py-10">
+      <div className="flex h-max w-full flex-col py-10">
         <div
           ref={ref}
           className={`transition-opacity duration-1000 ${
-            inView ? "opacity-100 animate-fadein" : "opacity-0"
+            inView ? "animate-fadein opacity-100" : "opacity-0"
           }`}
         >
           <TrendingGrid />
