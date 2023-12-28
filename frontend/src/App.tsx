@@ -8,21 +8,24 @@ import { Toaster } from "@/components/ui/toaster.tsx";
 import SearchResults from "@/_root/pages/SearchResults.tsx";
 import Podcast from "@/_root/pages/Podcast.tsx";
 import Episode from "@/_root/pages/Episode.tsx";
+import Landing from "@/_auth/Landing.tsx";
+import "non.geist";
 
 function App() {
   return (
-    <main>
+    <main className="font-geist">
       <Toaster />
       <Routes>
         {/* public routes */}
         <Route element={<AuthLayout />}>
+          <Route index element={<Landing />} />
           <Route path="/sign-in" element={<SignInForm />} />
           <Route path="/sign-up" element={<SignUpForm />} />
         </Route>
 
         {/* private routes */}
         <Route element={<RootLayout />}>
-          <Route index element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/search/:term" element={<SearchResults />} />
           <Route path="/podcast/:id" element={<Podcast />} />
           <Route path="/episode/:id" element={<Episode />} />

@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button.tsx";
 import { PodcastSearch } from "@/types";
 import { Skeleton } from "@/components/ui/skeleton.tsx";
-import CategoryTab from "@/components/shared/CategoryTab.tsx";
 import { useNavigate } from "react-router-dom";
 
 type SearchCardProps = {
@@ -42,10 +41,12 @@ const SearchCard = ({ podcast }: SearchCardProps) => {
         <div className="mb-2 hidden w-full flex-wrap gap-2 sm:flex">
           {podcast.categories &&
             Object.values(podcast.categories).map((name, index) => (
-              <CategoryTab key={index} category={name} />
+                <div key={index} className="rounded-full bg-light-2 px-3 py-1 text-[13px]">
+                  {name}
+                </div>
             ))}
         </div>
-        <p className="mb-5 hidden w-full flex-wrap self-start break-words text-[14px] sm:block">
+        <p className="mb-5 line-clamp-3 hidden w-full flex-wrap self-start break-words text-[14px] sm:block lg:line-clamp-5">
           {podcast.description}
         </p>
         <div className="hidden sm:mt-auto sm:block">

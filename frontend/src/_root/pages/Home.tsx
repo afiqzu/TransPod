@@ -1,5 +1,7 @@
 import TrendingGrid from "@/components/shared/TrendingGrid.tsx";
 import { useInView } from "react-intersection-observer";
+import { SearchField } from "@/components/shared/SearchField.tsx";
+import SearchSuggestions from "@/components/shared/SearchSuggestions.tsx";
 
 const Home = () => {
   const { ref, inView } = useInView({
@@ -7,17 +9,14 @@ const Home = () => {
   });
 
   return (
-    <div className="ml-auto mr-auto mt-[220px] flex flex-col items-center">
-      <div className="mb-[150px] mt-10 flex max-w-3xl flex-col items-center">
-        <p className="px-4 text-center text-3xl font-bold sm:text-6xl">
-          Get accurate podcast transcription with TransPod.
-        </p>
-        <p className="mb-[50px] mt-[40px] max-w-2xl px-4 text-center">
-          TransPod offers hassle-free podcast transcription. Ideal for
-          podcasters, journalists, and content creators. Get reliable
-          transcriptions without the fluff.
-        </p>
+    <div className="ml-auto mr-auto flex flex-col items-center">
+      <div className="flex h-[500px] min-w-[300px] flex-col items-center justify-center gap-3 px-4">
+        <div className="w-full">
+          <SearchField />
+        </div>
+        <SearchSuggestions />
       </div>
+
       <div className="flex h-max w-full flex-col py-10">
         <div
           ref={ref}

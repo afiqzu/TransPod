@@ -60,3 +60,8 @@ export type EpisodeDetails = {
   title: string;
   description: string;
 };
+
+export type Message = {
+  role: string;
+  content: string | undefined | null;
+};

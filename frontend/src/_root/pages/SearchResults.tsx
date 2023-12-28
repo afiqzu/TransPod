@@ -11,8 +11,8 @@ const SearchResults = () => {
   const numberOfSkeletons = 10;
 
   return (
-    <div className="ml-auto mr-auto mt-3 flex max-w-6xl flex-col px-2 sm:mt-10 sm:px-4 sm:py-10">
-      <p className="mb-3 text-[18px] font-medium sm:mb-8 sm:text-[24px]">
+    <div className="ml-auto mr-auto flex max-w-6xl flex-col px-2 sm:px-4">
+      <p className="my-3 text-[18px] font-medium sm:my-5 sm:text-[24px]">
         Showing results for '{term}'
       </p>
       {isPending &&

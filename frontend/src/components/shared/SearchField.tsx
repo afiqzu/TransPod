@@ -6,6 +6,8 @@ import * as z from "zod";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
+import { Search } from "lucide-react";
+import { Button } from "@/components/ui/button.tsx";
 
 const FormSchema = z.object({
   searchTerm: z.string().min(1),
@@ -28,18 +30,24 @@ export function SearchField() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+      <form onSubmit={form.handleSubmit(onSubmit)}>
         <FormField
           control={form.control}
           name="searchTerm"
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input
-                  placeholder="Search for Podcasts"
-                  className="mr-3 rounded-full"
-                  {...field}
-                />
+                <div className="flex w-full rounded-full bg-black px-2 py-1 shadow-xl">
+                  <Input
+                    placeholder="Search podcasts..."
+                    className="mr-3 w-full rounded-md border-none bg-transparent text-white"
+                    autoComplete="off"
+                    {...field}
+                  />
+                  <Button type="submit" className="bg-transparent text-white">
+                    <Search />
+                  </Button>
+                </div>
               </FormControl>
             </FormItem>
           )}

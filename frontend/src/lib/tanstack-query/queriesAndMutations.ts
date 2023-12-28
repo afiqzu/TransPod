@@ -12,6 +12,7 @@ import {
   podcastsTrending,
   searchByTerm,
 } from "@/lib/podcast-index/api.ts";
+import { generateSummary } from "@/lib/openai/api.ts";
 
 export const useCreateUserAccount = () => {
   return useMutation({
@@ -68,5 +69,13 @@ export const useGetEpisodesById = (id: string | undefined) => {
     queryKey: ["getEpisodesById", id],
     queryFn: () => getEpisodesById(id),
     enabled: !!id,
+  });
+};
+
+export const useGetSummary = (text: string) => {
+  return useQuery({
+    queryKey: ["getSummary", text],
+    queryFn: () => generateSummary(text),
+    enabled: !!text,
   });
 };

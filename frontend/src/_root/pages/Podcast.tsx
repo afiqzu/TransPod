@@ -28,7 +28,7 @@ const Podcast = () => {
           ></l-ring>
         </div>
       ) : (
-        <div className="ml-auto mr-auto mt-10 flex max-w-6xl flex-col px-4 sm:py-10">
+        <div className="ml-auto mr-auto mt-10 flex max-w-6xl flex-col px-4 py-5 sm:py-10">
           {podcast && <PodcastCard podcast={podcast} />}
           <p className="my-2 text-[24px] font-medium sm:my-8">Episodes</p>
           <ul>

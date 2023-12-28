@@ -5,7 +5,7 @@ const RootLayout = () => {
   return (
     <div className="overflow-hidden">
       <Topbar />
-      <section className="mt-[70px] sm:mt-[80px]">
+      <section className="mt-[58px] sm:mt-[66px]">
         <Outlet />
       </section>
     </div>

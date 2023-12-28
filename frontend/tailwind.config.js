@@ -30,6 +30,7 @@ export default {
         "light-1": "#FFFFFF",
         "light-2": "#F3F3F3",
         "light-3": "#dbdbdb",
+        "light-4": "#e5e7eb",
       },
       screens: {
         xs: "480px",
@@ -41,6 +42,7 @@ export default {
       fontFamily: {
         inter: ["Inter", "sans-serif"],
         helvetica: ["Helvetica Neue", "Arial", "sans-serif"],
+        geist: ["Geist Variable", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {
@@ -64,7 +66,7 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         fadein: "fadein 1s ease-out",
-        "loop-scroll": "loop-scroll 50s linear infinite",
+        "loop-scroll": "loop-scroll 80s linear infinite",
       },
     },
   },

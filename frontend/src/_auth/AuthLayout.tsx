@@ -9,7 +9,7 @@ const AuthLayout = () => {
       {isLoading ? (
         <LoadingScreen />
       ) : isAuthenticated ? (
-        <Navigate to="/" />
+        <Navigate to="/home" />
       ) : (
         <section className="flex h-screen flex-1 flex-col items-center justify-center bg-white">
           <Outlet />

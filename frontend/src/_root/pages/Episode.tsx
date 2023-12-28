@@ -5,6 +5,11 @@ import EpisodeContent from "@/components/shared/EpisodeContent.tsx";
 import Chat from "@/components/chat/Chat.tsx";
 import { ring } from "ldrs";
 import { Frown } from "lucide-react";
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/components/ui/resizable.tsx";
 
 const Episode = () => {
   const { id } = useParams();
@@ -30,13 +35,16 @@ const Episode = () => {
           Episode not found <Frown />
         </div>
       ) : (
-        <div className="flex h-[calc(100vh-70px)] flex-col sm:h-[calc(100vh-80px)]">
-          <div className="grid h-full grid-cols-1 overflow-scroll sm:grid-cols-2">
-            <EpisodeContent />
-            <div className="hidden sm:block">
+        <div className="flex h-[calc(100vh-60px)] flex-col sm:h-[calc(100vh-68px)]">
+          <ResizablePanelGroup direction="horizontal">
+            <ResizablePanel className="min-w-[300px]">
+              <EpisodeContent />
+            </ResizablePanel>
+            <ResizableHandle withHandle className="hidden bg-light-4 md:flex" />
+            <ResizablePanel className="hidden min-w-[400px] md:block">
               <Chat />
-            </div>
-          </div>
+            </ResizablePanel>
+          </ResizablePanelGroup>
           <EpisodeInfo episode={episode} />
         </div>
       )}

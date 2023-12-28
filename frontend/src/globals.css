@@ -3,51 +3,58 @@
 @tailwind utilities;
 
 @layer base {
-  * {
-    @apply m-0 box-border list-none scroll-smooth p-0;
-  }
+    * {
+        @apply m-0 box-border list-none scroll-smooth p-0;
+    }
 
-  body {
-    @apply min-h-screen bg-light-2 font-helvetica text-black;
-  }
+    body {
+        @apply min-h-screen font-geist bg-light-2 text-black;
+    }
 }
 
 @layer components {
-  /* SHADCN COMPONENTS */
+    /* SHADCN COMPONENTS */
+    /* Button */
+    .shad-button_primary {
+        @apply flex gap-2 bg-primary-600 text-[11px] font-bold text-light-1 hover:bg-primary-700 sm:text-sm !important;
+    }
 
-  /* Button */
-  .shad-button_primary {
-    @apply flex gap-2 bg-primary-600 text-[11px] font-bold text-light-1 hover:bg-primary-700 sm:text-sm !important;
-  }
+    .shad-button_ghost {
+        @apply flex gap-2 text-[11px] font-bold border-2 border-primary-800 text-primary-800 sm:text-sm !important;
+    }
 
-  .shad-button_dark {
-    @apply flex gap-2 bg-black text-[16px] font-normal text-light-1 hover:bg-gray-700 sm:text-xl sm:font-medium !important;
-  }
+    .shad-button_action {
+        @apply flex gap-2 bg-primary-600 text-xl font-bold text-light-1 hover:bg-primary-700 py-7 px-5 !important;
+    }
+
+    .shad-button_dark {
+        @apply flex gap-2 bg-black text-[16px] font-normal text-light-1 hover:bg-gray-700 sm:text-xl sm:font-medium !important;
+    }
 }
 
 .logos-slide {
-  animation: slide 35s infinite linear;
+    animation: slide 35s infinite linear;
 }
 
 @keyframes slide {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
 }
 
 .logos:hover .logos-slide {
-  animation-play-state: paused;
+    animation-play-state: paused;
 }
 
 @layer utilities {
-  .paused {
-    animation-play-state: paused;
-  }
+    .paused {
+        animation-play-state: paused;
+    }
 
-  .h-fit {
-    @apply h-[calc(100vh-70px)] sm:h-[calc(100vh-80px)];
-  }
+    .h-fit {
+        @apply h-[calc(100vh-70px)] sm:h-[calc(100vh-80px)];
+    }
 }

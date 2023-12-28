@@ -24,7 +24,7 @@ app.get('/search', async (req, res) => {
 app.get('/trending', async (req, res) => {
     try {
         const maxPod = req.query.max ? req.query.max : 12;
-        const results = await api.podcastsTrending(max = maxPod, since = null, lang = 'en,en-us,en-gb,en-ca');
+        const results = await api.podcastsTrending(max = maxPod, since = null, lang = 'en,en-us,en-gb,en-ca', cat = null, notcat ='Religion');
         res.json(results);
     } catch (error) {
         res.status(500).send('Internal Server Error');

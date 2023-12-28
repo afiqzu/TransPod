@@ -16,7 +16,7 @@ const TrendingGrid = () => {
         ))
       ) : (
         <div>
-          <p className="mb-3 ml-10 flex text-2xl font-medium sm:ml-[100px]">
+          <p className="mb-3 ml-10 flex text-2xl font-medium tracking-tight sm:ml-[100px]">
             Trending podcasts
           </p>
           <div className="group flex gap-5 overflow-hidden">
