@@ -1,8 +1,10 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import SideBar from "@/components/shared/SideBar.tsx";
+import { SearchField } from "@/components/shared/SearchField.tsx";
 
 const Topbar = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogoClick = () => {
     navigate("/home");
@@ -16,6 +18,14 @@ const Topbar = () => {
       >
         <img src="/assets/logo.png" width={40} height={40} alt="logo" />
         <p className="ml-1 hidden text-2xl font-medium sm:block">TransPod</p>
+      </div>
+      <div className="fixed hidden w-1/2 translate-x-1/2 self-center sm:flex">
+        {location.pathname !== "/home" &&
+          !location.pathname.startsWith("/episode/") && (
+            <div className="w-full">
+              <SearchField inTopbar={true} />
+            </div>
+          )}
       </div>
       <div className="flex cursor-pointer hover:underline">
         <SideBar />

@@ -42,7 +42,7 @@ const SideBar = () => {
         <SheetHeader>
           <SheetTitle className="align-center mb-5 flex gap-1">
             <img src="/assets/logo.png" width={30} height={30} alt="logo" />
-            <p>TransPod</p>
+            <p className='cursor-default'>TransPod</p>
           </SheetTitle>
         </SheetHeader>
         <SearchField />

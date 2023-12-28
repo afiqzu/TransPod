@@ -18,7 +18,11 @@ const FormSchema = z.object({
   searchTerm: z.string().min(1),
 });
 
-export function SearchField() {
+interface SearchFieldProps {
+  inTopbar?: boolean;
+}
+
+export function SearchField({ inTopbar }: SearchFieldProps) {
   const navigate = useNavigate();
 
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -30,7 +34,7 @@ export function SearchField() {
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     form.reset();
-    document.getElementById('closeSheet')?.click();
+    document.getElementById("closeSheet")?.click();
     navigate(`/search/${data.searchTerm}`);
   }
 
@@ -43,10 +47,15 @@ export function SearchField() {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <div className="flex w-full rounded-full bg-black px-2 py-1 shadow-[3px_10px_20px_2px_rgba(0,0,0,0.25)]">
+                <div
+                  className={`flex rounded-full px-2 ${
+                    inTopbar ? 'bg-white border-2 ':
+                    "py-1 bg-black text-white shadow-[3px_10px_20px_2px_rgba(0,0,0,0.25)]"
+                  }`}
+                >
                   <Input
                     placeholder="Search podcasts..."
-                    className="mr-3 w-full rounded-md border-none bg-transparent text-white"
+                    className="mr-3 rounded-md border-none bg-transparent"
                     autoComplete="off"
                     {...field}
                   />
@@ -54,7 +63,7 @@ export function SearchField() {
                     <HoverCardTrigger>
                       <Button
                         type="submit"
-                        className="bg-transparent text-white"
+                        className={`bg-transparent text-white ${inTopbar&&'hidden'}`}
                       >
                         <Search />
                       </Button>

@@ -12,7 +12,7 @@ const Home = () => {
     <div className="ml-auto mr-auto flex flex-col items-center bg-white">
       <div className="flex h-[700px] w-3/4 flex-col items-center justify-center gap-5 px-4">
         <div className="w-full max-w-4xl">
-          <SearchField />
+          <SearchField inTopbar={false}/>
         </div>
         <SearchSuggestions />
       </div>
