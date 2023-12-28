@@ -32,7 +32,12 @@ const Chat = () => {
         <div ref={chatEndRef} />
       </div>
       <div className="mt-auto">
-        {conversation.length === 0 && <ChatPrompts />}
+        {conversation.length === 0 && (
+          <ChatPrompts
+            onNewInput={handleNewInput}
+            onNewResponse={handleNewResponse}
+          />
+        )}
         <ChatInput
           onNewInput={handleNewInput}
           onNewResponse={handleNewResponse}

@@ -8,8 +8,8 @@ const ChatMessage = ({ message }: ChatMessageProps) => {
     <div
       className={`${
         message.role === "user"
-          ? "ml-auto bg-primary-600 text-white"
-          : "mr-auto border-[1px] border-primary-800 bg-white text-primary-800"
+          ? "ml-auto bg-green-700 text-white"
+          : "mr-auto border-[1px] border-green-700 bg-white text-green-700"
       } mb-3 flex w-fit max-w-lg rounded-md px-3 py-2 text-[14px] `}
     >
       {message.content}

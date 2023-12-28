@@ -14,6 +14,7 @@ import { toast } from "@/components/ui/use-toast.ts";
 import { useSignOutAccount } from "@/lib/tanstack-query/queriesAndMutations.ts";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { Separator } from "@/components/ui/separator.tsx";
 
 const SideBar = () => {
   const { mutate: signOut, isSuccess } = useSignOutAccount();
@@ -45,14 +46,15 @@ const SideBar = () => {
           </SheetTitle>
         </SheetHeader>
         <SearchField />
+        <Separator className="mt-10 bg-light-4 "/>
         <SheetFooter>
           <SheetClose asChild>
             <Button
               type="submit"
               onClick={handleSignOut}
-              className="ml-auto mt-10 w-fit gap-3 p-0"
+              className="ml-autow-fit gap-3 p-0"
             >
-              Sign Out
+              Log Out
               <LogOut size={20} />
             </Button>
           </SheetClose>

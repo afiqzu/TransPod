@@ -1,26 +1,33 @@
-import { Button } from "@/components/ui/button.tsx";
 import { ArrowUpRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const SearchSuggestions = () => {
   const navigate = useNavigate();
-  const suggestions = ["News", "Comedy", "Education", "Health"];
+  const suggestions = [
+    "News",
+    "Comedy",
+    "Education",
+    "Health",
+    "Culture",
+    "History",
+    "Documentary",
+  ];
 
   const handleClick = (searchTerm: string) => {
     navigate(`/search/${searchTerm}`);
   };
 
   return (
-    <div className="flex gap-3">
+    <div className="flex flex-wrap justify-center gap-3">
       {suggestions.map((suggestion) => (
-        <Button
+        <div
           onClick={() => handleClick(suggestion)}
           key={suggestion}
-          className="rounded-full border-2 border-dark-4 p-2 text-sm font-light opacity-70"
+          className="flex cursor-pointer items-center gap-1 rounded-full border-[1px] border-light-3 px-2 py-1 text-[13px] font-light"
         >
           {suggestion}
-          <ArrowUpRight />
-        </Button>
+          <ArrowUpRight size={15} />
+        </div>
       ))}
     </div>
   );

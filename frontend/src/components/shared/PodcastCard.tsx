@@ -9,7 +9,7 @@ const PodcastCard = ({ podcast }: PodcastCardProps) => {
     <div className="mb-5 w-full items-center justify-center rounded-md sm:flex">
       <div className="mb-3 flex justify-center sm:mb-0">
         <img
-          className="w-[200px] object-scale-down sm:w-[250px]"
+          className="w-[200px] object-scale-down sm:w-[300px]"
           src={podcast.artwork}
           alt={podcast.title}
         />

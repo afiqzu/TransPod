@@ -44,18 +44,15 @@ export async function saveUserToDB(user: {
   }
 }
 
-// ============================== GET ACCOUNT
 export async function getAccount() {
   try {
     const currentAccount = await account.get();
-
     return currentAccount;
   } catch (error) {
     console.log(error);
   }
 }
 
-// ============================== GET USER
 export async function getCurrentUser() {
   try {
     const currentAccount = await getAccount();
@@ -77,19 +74,15 @@ export async function getCurrentUser() {
   }
 }
 
-// ============================== SIGN IN
-
 export async function signInAccount(user: { email: string; password: string }) {
   try {
     const session = await account.createEmailSession(user.email, user.password);
     return session;
   } catch (error) {
-    // TODO: throw error back to tanstack query
     console.log(error);
   }
 }
 
-// ============================== SIGN OUT
 export async function signOutAccount() {
   try {
     const session = await account.deleteSession("current");

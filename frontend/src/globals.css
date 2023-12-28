@@ -13,27 +13,21 @@
 }
 
 @layer components {
-    /* SHADCN COMPONENTS */
-    /* Button */
     .shad-button_primary {
-        @apply flex gap-2 bg-primary-600 text-[11px] font-bold text-light-1 hover:bg-primary-700 sm:text-sm !important;
+        @apply flex gap-2 bg-green-700 text-[11px] font-bold text-light-1 hover:bg-green-800 sm:text-sm !important;
     }
 
     .shad-button_ghost {
-        @apply flex gap-2 text-[11px] font-bold border-2 border-primary-800 text-primary-800 sm:text-sm !important;
+        @apply flex gap-2 text-[11px] border-2 border-green-800 text-green-800 sm:text-sm !important;
     }
 
     .shad-button_action {
-        @apply flex gap-2 bg-primary-600 text-xl font-bold text-light-1 hover:bg-primary-700 py-7 px-5 !important;
+        @apply flex gap-2 bg-black shadow-[3px_10px_25px_2px_rgba(0,0,0,0.2)] text-xl font-medium text-light-1 py-7 px-5 !important;
     }
 
     .shad-button_dark {
         @apply flex gap-2 bg-black text-[16px] font-normal text-light-1 hover:bg-gray-700 sm:text-xl sm:font-medium !important;
     }
-}
-
-.logos-slide {
-    animation: slide 35s infinite linear;
 }
 
 @keyframes slide {
@@ -56,5 +50,13 @@
 
     .h-fit {
         @apply h-[calc(100vh-70px)] sm:h-[calc(100vh-80px)];
+    }
+
+    .logos-slide {
+        animation: slide 35s infinite linear;
+    }
+
+    .hover-card_animation {
+        @apply data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95
     }
 }

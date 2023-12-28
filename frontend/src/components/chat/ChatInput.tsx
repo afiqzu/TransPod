@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/form.tsx";
 import { Input } from "@/components/ui/input.tsx";
 import { Message } from "@/types";
-import { openAIRequest } from "@/lib/openai/api.ts";
+import { generateChatMessage } from "@/lib/openai/api.ts";
 
 const FormSchema = z.object({
   chatInput: z.string().min(1),
@@ -19,6 +19,7 @@ type ChatInputProps = {
   onNewInput: (message: Message) => void;
   onNewResponse: (message: Message) => void;
 };
+
 const ChatInput = ({ onNewInput, onNewResponse }: ChatInputProps) => {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -33,7 +34,7 @@ const ChatInput = ({ onNewInput, onNewResponse }: ChatInputProps) => {
       role: "user",
       content: data.chatInput,
     });
-    const response = await openAIRequest(data.chatInput);
+    const response = await generateChatMessage(data.chatInput);
     if (response)
       onNewResponse({ role: response.role, content: response.content });
   }

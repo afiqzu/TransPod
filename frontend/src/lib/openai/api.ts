@@ -1,11 +1,15 @@
 import OpenAI from "openai";
+import { sampleTranscription } from "@/lib/utils.ts";
 
 const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
 const openai = new OpenAI({ apiKey: apiKey, dangerouslyAllowBrowser: true });
 
-export const openAIRequest = async (userInput: string) => {
+export const generateChatMessage = async (userInput: string) => {
   const completion = await openai.chat.completions.create({
-    messages: [{ role: "user", content: userInput }],
+    messages: [
+      { role: "system", content: sampleTranscription },
+      { role: "user", content: userInput },
+    ],
     model: "gpt-3.5-turbo",
   });
   return completion.choices[0].message;

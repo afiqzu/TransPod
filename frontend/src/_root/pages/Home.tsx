@@ -9,15 +9,14 @@ const Home = () => {
   });
 
   return (
-    <div className="ml-auto mr-auto flex flex-col items-center">
-      <div className="flex h-[500px] min-w-[300px] flex-col items-center justify-center gap-3 px-4">
-        <div className="w-full">
+    <div className="ml-auto mr-auto flex flex-col items-center bg-white">
+      <div className="flex h-[700px] w-3/4 flex-col items-center justify-center gap-5 px-4">
+        <div className="w-full max-w-4xl">
           <SearchField />
         </div>
         <SearchSuggestions />
       </div>
-
-      <div className="flex h-max w-full flex-col py-10">
+      <div className="flex h-max w-full flex-col pt-10">
         <div
           ref={ref}
           className={`transition-opacity duration-1000 ${
