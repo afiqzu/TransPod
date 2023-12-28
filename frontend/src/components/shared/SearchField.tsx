@@ -30,6 +30,7 @@ export function SearchField() {
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     form.reset();
+    document.getElementById('closeSheet')?.click();
     navigate(`/search/${data.searchTerm}`);
   }
 

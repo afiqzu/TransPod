@@ -31,12 +31,12 @@ const SideBar = () => {
       title: "Signing out...",
     });
   };
+
   return (
     <Sheet>
+      <SheetClose id="closeSheet" />
       <SheetTrigger asChild>
-        <Button>
-          <Menu />
-        </Button>
+        <Menu />
       </SheetTrigger>
       <SheetContent className="bg-white">
         <SheetHeader>
@@ -46,15 +46,15 @@ const SideBar = () => {
           </SheetTitle>
         </SheetHeader>
         <SearchField />
-        <Separator className="mt-10 bg-light-4 "/>
+        <Separator className="mt-10 bg-light-4 " />
         <SheetFooter>
           <SheetClose asChild>
             <Button
               type="submit"
               onClick={handleSignOut}
-              className="ml-autow-fit gap-3 p-0"
+              className="ml-auto w-fit gap-3 p-0"
             >
-              Log Out
+              Sign out
               <LogOut size={20} />
             </Button>
           </SheetClose>

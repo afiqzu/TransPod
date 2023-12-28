@@ -17,7 +17,7 @@ const Topbar = () => {
         <img src="/assets/logo.png" width={40} height={40} alt="logo" />
         <p className="ml-1 hidden text-2xl font-medium sm:block">TransPod</p>
       </div>
-      <div className="cursor-pointer hover:underline">
+      <div className="flex cursor-pointer hover:underline">
         <SideBar />
       </div>
     </div>
