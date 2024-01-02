@@ -6,13 +6,13 @@ import {
 } from "@/components/ui/tabs.tsx";
 import { useGetSummary } from "@/lib/tanstack-query/queriesAndMutations.ts";
 import { ring } from "ldrs";
-import {sampleTranscription} from "@/lib/utils.ts";
+import { sampleTranscription } from "@/lib/utils.ts";
 
 const EpisodeContent = () => {
   ring.register();
 
-
-  const { isPending: isGettingTranscription } = useGetSummary(sampleTranscription);
+  const { isPending: isGettingTranscription } =
+    useGetSummary(sampleTranscription);
 
   return (
     <div className="h-full">

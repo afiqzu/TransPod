@@ -20,6 +20,8 @@ import {
   useCreateUserAccount,
   useSignInAccount,
 } from "@/lib/tanstack-query/queriesAndMutations.ts";
+import { Separator } from "@/components/ui/separator.tsx";
+import OAuthButtons from "@/_auth/forms/OAuthButtons.tsx";
 
 export const SignUpForm = () => {
   const { toast } = useToast();
@@ -146,6 +148,8 @@ export const SignUpForm = () => {
             </Link>
           </p>
         </form>
+        <Separator className="mb-7 mt-5 bg-light-4" />
+        <OAuthButtons />
       </div>
     </Form>
   );

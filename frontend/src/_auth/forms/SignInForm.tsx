@@ -16,6 +16,8 @@ import { SignInValidation } from "@/lib/validation";
 import { Input } from "@/components/ui/input.tsx";
 import { useUserContext } from "@/context/AuthContext.tsx";
 import { useSignInAccount } from "@/lib/tanstack-query/queriesAndMutations.ts";
+import { Separator } from "@/components/ui/separator.tsx";
+import OAuthButtons from "@/_auth/forms/OAuthButtons.tsx";
 
 export const SignInForm = () => {
   const { toast } = useToast();
@@ -57,56 +59,63 @@ export const SignInForm = () => {
   }
 
   return (
-    <Form {...form}>
-      <div className="flex w-420 flex-col items-center justify-center px-4">
-        <div className="m-0 flex gap-1 p-0">
-          <img src="/assets/logo.png" alt="logo" height={30} width={34} />
-          <p className="m-0 ml-1 text-3xl font-medium text-black">TransPod</p>
-        </div>
-        <h2 className="mt-10 pt-0 text-2xl font-bold">Welcome back!</h2>
+    <>
+      <Form {...form}>
+        <div className="flex w-420 flex-col items-center justify-center px-4">
+          <div className="m-0 flex gap-1 p-0">
+            <img src="/assets/logo.png" alt="logo" height={30} width={34} />
+            <p className="m-0 ml-1 text-3xl font-medium text-black">TransPod</p>
+          </div>
+          <h2 className="mt-10 pt-0 text-2xl font-bold">Welcome back!</h2>
 
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="mt-4 flex w-full flex-col gap-5"
-        >
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email</FormLabel>
-                <FormControl>
-                  <Input type="email" className="shad-input" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="password"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Password</FormLabel>
-                <FormControl>
-                  <Input type="password" className="shad-input" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <Button type="submit" className="shad-button_primary">
-            {isSuccess || isSigningIn ? "Signing in..." : "Sign In"}
-          </Button>
-          <p className="text-small-regular mt-2 text-center text-dark-3">
-            Don't have an account?
-            <Link to="/sign-up" className="ml-2 font-medium text-tertiary-500">
-              Sign up
-            </Link>
-          </p>
-        </form>
-      </div>
-    </Form>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="mt-4 flex w-full flex-col gap-5"
+          >
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
+                    <Input type="email" className="shad-input" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Password</FormLabel>
+                  <FormControl>
+                    <Input type="password" className="shad-input" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Button type="submit" className="shad-button_primary">
+              {isSuccess || isSigningIn ? "Signing in..." : "Sign In"}
+            </Button>
+            <p className="text-small-regular mt-2 text-center text-dark-3">
+              Don't have an account?
+              <Link
+                to="/sign-up"
+                className="ml-2 font-medium text-tertiary-500"
+              >
+                Sign up
+              </Link>
+            </p>
+            <Separator className="mb-2 bg-light-4" />
+            <OAuthButtons />
+          </form>
+        </div>
+      </Form>
+    </>
   );
 };
 

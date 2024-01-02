@@ -25,6 +25,7 @@ const SideBar = () => {
       navigate(0);
     }
   }, [isSuccess]);
+
   const handleSignOut = () => {
     signOut();
     toast({
@@ -42,11 +43,11 @@ const SideBar = () => {
         <SheetHeader>
           <SheetTitle className="align-center mb-5 flex gap-1">
             <img src="/assets/logo.png" width={30} height={30} alt="logo" />
-            <p className='cursor-default'>TransPod</p>
+            <p className="cursor-default">TransPod</p>
           </SheetTitle>
         </SheetHeader>
         <SearchField />
-        <Separator className="mt-10 bg-light-4 " />
+        <Separator className="mt-10 bg-light-4" />
         <SheetFooter>
           <SheetClose asChild>
             <Button

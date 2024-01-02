@@ -1,7 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { createContext, useContext, useEffect, useState } from "react";
 
-import { getCurrentUser } from "@/lib/appwrite/api";
+import {
+  checkRegisteredUser,
+  getCurrentUser,
+  getProviderAccessToken,
+} from "@/lib/appwrite/api";
 import { IContextType, IUser } from "@/types";
 
 export const INITIAL_USER = {
@@ -26,11 +30,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const navigate = useNavigate();
   const [user, setUser] = useState<IUser>(INITIAL_USER);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const checkAuthUser = async () => {
-    setIsLoading(true);
     try {
+      await checkRegisteredUser();
       const currentAccount = await getCurrentUser();
       if (currentAccount) {
         setUser({
@@ -54,15 +58,21 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   useEffect(() => {
-    const cookieFallback = localStorage.getItem("cookieFallback");
-    if (
-      cookieFallback === "[]" ||
-      cookieFallback === null ||
-      cookieFallback === undefined
-    ) {
-      navigate("/");
-    }
+    const initAuthCheck = async () => {
+      const cookieFallback = localStorage.getItem("cookieFallback");
+      let isAuthenticated = false;
 
+      if (cookieFallback === "[]" || cookieFallback === null) {
+        const token = await getProviderAccessToken();
+        isAuthenticated = !!token;
+
+        if (!isAuthenticated) {
+          navigate("/");
+        }
+      }
+      setIsLoading(false);
+    };
+    initAuthCheck();
     checkAuthUser();
   }, []);
 

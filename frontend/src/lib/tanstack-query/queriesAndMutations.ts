@@ -1,5 +1,6 @@
 import {
   createUserAccount,
+  getPodcastHistory,
   signInAccount,
   signOutAccount,
 } from "@/lib/appwrite/api.ts";
@@ -77,5 +78,12 @@ export const useGetSummary = (text: string) => {
     queryKey: ["getSummary", text],
     queryFn: () => generateSummary(text),
     enabled: !!text,
+  });
+};
+
+export const useGetPodcastHistory = () => {
+  return useQuery({
+    queryKey: ["getPodcastHistory"],
+    queryFn: () => getPodcastHistory(),
   });
 };

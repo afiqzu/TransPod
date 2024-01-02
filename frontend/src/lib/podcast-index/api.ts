@@ -42,6 +42,11 @@ export async function getPodcastById(id: string | undefined) {
     }
     const result = await response.json();
     const podcast = result.feed;
+    // await addToPodcastHistory({
+    //   podcastId: podcast.id.toString(),
+    //   title: podcast.title,
+    //   imageUrl: podcast.artwork,
+    // });
     return {
       id: podcast.id,
       author: podcast.author,

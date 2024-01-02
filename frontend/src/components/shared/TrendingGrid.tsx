@@ -15,10 +15,10 @@ const TrendingGrid = () => {
           <TrendingCardSkeleton key={index} />
         ))
       ) : (
-        <div>
-          <p className="mb-3 ml-10 flex text-2xl font-medium tracking-tight text-white sm:ml-[100px]">
+        <div className="flex w-full flex-col">
+          <div className="mb-3 flex w-3/4 self-center px-4 text-2xl font-medium tracking-tight text-white">
             Trending podcasts
-          </p>
+          </div>
           <div className="group flex gap-5 overflow-hidden">
             <div className="my-5 flex animate-loop-scroll gap-5 group-hover:paused">
               {trending?.map((podcast: PodcastTrending) => (

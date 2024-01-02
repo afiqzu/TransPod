@@ -7,17 +7,32 @@ import PodcastCard from "@/components/shared/PodcastCard.tsx";
 import { Episode } from "@/types";
 import EpisodeCard from "@/components/shared/EpisodeCard.tsx";
 import { ring } from "ldrs";
+import { useEffect } from "react";
+import { addToPodcastHistory } from "@/lib/appwrite/api.ts";
+import { getPodcastById } from "@/lib/podcast-index/api.ts";
 
 const Podcast = () => {
   const { id } = useParams();
-  const { data: podcast } = useGetPodcastById(id);
+  const { data: podcast, isPending: isFetchingPodcast } = useGetPodcastById(id);
   const { data: episodes, isPending: isFetchingEpisodes } =
     useGetEpisodesByFeedId(id);
   ring.register();
 
+  useEffect(() => {
+    const addToHistory = async () => {
+      const podcast = await getPodcastById(id);
+      await addToPodcastHistory({
+        podcastId: podcast?.id.toString(),
+        title: podcast?.title,
+        imageUrl: podcast?.artwork,
+      });
+    };
+    addToHistory().catch(console.error);
+  }, []);
+
   return (
     <>
-      {isFetchingEpisodes ? (
+      {isFetchingEpisodes || isFetchingPodcast ? (
         <div className="flex h-fit w-screen items-center justify-center">
           <l-ring
             size="20"

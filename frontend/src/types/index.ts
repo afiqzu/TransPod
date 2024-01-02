@@ -46,6 +46,12 @@ export type PodcastDetails = {
   episodeCount: string;
 };
 
+export type PodcastsHistory = {
+  podcastId: string;
+  title: string;
+  imageUrl: string;
+};
+
 export type Episode = {
   id: string;
   title: string;

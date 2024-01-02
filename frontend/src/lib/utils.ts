@@ -57,4 +57,3 @@ export const sampleTranscription = `Host (Sarah Johnson): [00:00:00]
 
   David: [00:02:30]
   Absolutely. First, it's essential to set boundaries. Know when to switch off from work and be present in your personal life. Secondly, prioritize self-care. You can't pour from an empty cup. And finally, communicate your needs clearly, both at work and home.`;
-

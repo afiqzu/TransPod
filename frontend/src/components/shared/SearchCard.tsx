@@ -41,9 +41,12 @@ const SearchCard = ({ podcast }: SearchCardProps) => {
         <div className="mb-2 hidden w-full flex-wrap gap-2 sm:flex">
           {podcast.categories &&
             Object.values(podcast.categories).map((name, index) => (
-                <div key={index} className="rounded-full bg-light-2 px-3 py-1 text-[13px]">
-                  {name}
-                </div>
+              <div
+                key={index}
+                className="rounded-full bg-light-2 px-3 py-1 text-[13px]"
+              >
+                {name}
+              </div>
             ))}
         </div>
         <p className="mb-5 line-clamp-3 hidden w-full flex-wrap self-start break-words text-[14px] sm:block lg:line-clamp-5">

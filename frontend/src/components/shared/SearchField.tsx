@@ -49,8 +49,9 @@ export function SearchField({ inTopbar }: SearchFieldProps) {
               <FormControl>
                 <div
                   className={`flex rounded-full px-2 ${
-                    inTopbar ? 'bg-white border-2 ':
-                    "py-1 bg-black text-white shadow-[3px_10px_20px_2px_rgba(0,0,0,0.25)]"
+                    inTopbar
+                      ? "border-2 bg-white "
+                      : "bg-black py-1 text-white shadow-[3px_10px_20px_2px_rgba(0,0,0,0.25)]"
                   }`}
                 >
                   <Input
@@ -63,7 +64,9 @@ export function SearchField({ inTopbar }: SearchFieldProps) {
                     <HoverCardTrigger>
                       <Button
                         type="submit"
-                        className={`bg-transparent text-white ${inTopbar&&'hidden'}`}
+                        className={`bg-transparent text-white ${
+                          inTopbar && "hidden"
+                        }`}
                       >
                         <Search />
                       </Button>
