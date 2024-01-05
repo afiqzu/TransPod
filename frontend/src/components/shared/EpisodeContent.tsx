@@ -21,13 +21,13 @@ const EpisodeContent = () => {
           <TabsTrigger value="transcript">Transcript</TabsTrigger>
           <TabsTrigger value="summary">Summary</TabsTrigger>
         </TabsList>
-        <div className="h-full overflow-scroll px-5 sm:px-7 sm:py-3">
-          <TabsContent value="transcript" className="overflow-scroll">
-            <div className="overflow-scroll whitespace-pre-line">
+        <div className="h-full overflow-auto px-5 sm:px-7 sm:py-3">
+          <TabsContent value="transcript">
+            <div className=" whitespace-pre-line">
               {sampleTranscription}
             </div>
           </TabsContent>
-          <TabsContent value="summary" className="h-full overflow-scroll">
+          <TabsContent value="summary" className="h-full">
             {isGettingTranscription ? (
               <div className="flex h-fit w-screen items-center justify-center">
                 <l-ring

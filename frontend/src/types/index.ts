@@ -10,14 +10,12 @@ export type IContextType = {
 export type IUser = {
   id: string;
   name: string;
-  username: string;
   email: string;
 };
 
 export type INewUser = {
   name: string;
   email: string;
-  username: string;
   password: string;
 };
 

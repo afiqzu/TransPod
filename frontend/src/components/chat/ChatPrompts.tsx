@@ -23,7 +23,7 @@ const ChatPrompts = ({ onNewInput, onNewResponse }: ChatPromptProps) => {
   }
 
   return (
-    <div className="mb-6 grid grid-cols-1 gap-1 overflow-scroll p-3 lg:grid-cols-2">
+    <div className="mb-6 grid grid-cols-1 gap-1 p-3 lg:grid-cols-2">
       {prompts.map((prompt: string) => (
         <div
           className="my-2 w-full cursor-pointer rounded-xl border-[1px] border-black px-4 py-2 text-[14px] text-black"

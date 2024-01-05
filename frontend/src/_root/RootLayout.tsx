@@ -1,10 +1,19 @@
 import Topbar from "@/components/shared/Topbar.tsx";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { useUserContext } from "@/context/AuthContext.tsx";
 import LoadingScreen from "@/components/shared/LoadingScreen.tsx";
+import { useEffect } from "react";
 
 const RootLayout = () => {
-  const { isLoading } = useUserContext();
+  const { isAuthenticated, isLoading } = useUserContext();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isAuthenticated && !isLoading) {
+      navigate("/");
+    }
+  }, [isAuthenticated, isLoading]);
+
   return (
     <>
       {isLoading ? (

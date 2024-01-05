@@ -1,4 +1,5 @@
 import {
+  createRecovery,
   createUserAccount,
   getPodcastHistory,
   signInAccount,
@@ -31,6 +32,12 @@ export const useSignInAccount = () => {
 export const useSignOutAccount = () => {
   return useMutation({
     mutationFn: () => signOutAccount(),
+  });
+};
+
+export const useCreateRecovery = () => {
+  return useMutation({
+    mutationFn: createRecovery,
   });
 };
 

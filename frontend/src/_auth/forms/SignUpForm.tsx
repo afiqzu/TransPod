@@ -36,7 +36,6 @@ export const SignUpForm = () => {
     resolver: zodResolver(SignUpValidation),
     defaultValues: {
       name: "",
-      username: "",
       email: "",
       password: "",
     },
@@ -44,7 +43,6 @@ export const SignUpForm = () => {
 
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof SignUpValidation>) {
-    // @ts-ignore
     const newUser = await createUserAccount(values);
 
     if (!newUser) {
@@ -57,7 +55,7 @@ export const SignUpForm = () => {
     });
 
     if (!session) {
-      return toast({ title: "Sign in failed. Please try again." });
+      return toast({ title: "Sign in failed. Please try again.", variant: 'destructive' });
     }
 
     const isLoggedIn = await checkAuthUser();
@@ -65,49 +63,28 @@ export const SignUpForm = () => {
       form.reset();
       navigate("/");
     } else {
-      toast({ title: "Sign in failed. Please try again." });
+      toast({ title: "Sign in failed. Please try again.", variant: 'destructive' });
     }
   }
 
   return (
-    <Form {...form}>
-      <div className="flex w-420 flex-col items-center justify-center px-4">
-        <div className="m-0 flex gap-1 p-0">
-          <img src="/assets/logo.png" alt="logo" height={30} width={34} />
-          <p className="m-0 ml-1 text-3xl font-medium text-black">TransPod</p>
-        </div>
-        <h2 className="mt-10 pt-0 text-2xl font-bold">Create your account</h2>
-
+    <div className="flex w-420 flex-col items-center justify-center gap-5 px-4">
+      <div className="flex gap-1">
+        <img src="/assets/logo.png" alt="logo" height={30} width={34} />
+        <p className="ml-1 text-3xl font-medium text-black">TransPod</p>
+      </div>
+      <h2 className="mb-2 text-2xl font-bold">Create your account</h2>
+      <OAuthButtons />
+      <div className="mt-4 mb-1 flex w-full items-center justify-center gap-3">
+        <Separator className="w-1/3 bg-light-4" />
+        <p className="text-gray-500">or</p>
+        <Separator className="w-1/3 bg-light-4" />
+      </div>
+      <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
           className="mt-4 flex w-full flex-col gap-5"
         >
-          <FormField
-            control={form.control}
-            name="name"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Name</FormLabel>
-                <FormControl>
-                  <Input type="text" className="shad-input" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="username"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Username</FormLabel>
-                <FormControl>
-                  <Input type="text" className="shad-input" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
           <FormField
             control={form.control}
             name="email"
@@ -134,6 +111,19 @@ export const SignUpForm = () => {
               </FormItem>
             )}
           />
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Name</FormLabel>
+                <FormControl>
+                  <Input type="text" className="shad-input" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
           <Button type="submit" className="shad-button_primary">
             {isCreatingUser ? (
               <div className="flex-center gap-2">Creating account...</div>
@@ -141,17 +131,15 @@ export const SignUpForm = () => {
               "Sign up"
             )}
           </Button>
-          <p className="text-small-regular mt-2 text-center text-dark-3">
-            Already have an account?
-            <Link to="/sign-in" className="ml-2 font-medium text-tertiary-500">
-              Log in
-            </Link>
-          </p>
         </form>
-        <Separator className="mb-7 mt-5 bg-light-4" />
-        <OAuthButtons />
-      </div>
-    </Form>
+      </Form>
+      <p className="font-medium mt-2 text-center text-dark-3">
+        Already have an account?
+        <Link to="/sign-in" className="ml-2 font-medium text-tertiary-500">
+          Log in
+        </Link>
+      </p>
+    </div>
   );
 };
 

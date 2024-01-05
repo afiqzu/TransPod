@@ -10,17 +10,17 @@ const Landing = () => {
   };
 
   return (
-    <div className="ml-auto mr-auto flex flex-col items-center bg-gradient-to-br">
+    <div className="ml-auto mr-auto flex flex-col items-center">
       <div className="fixed top-0 z-10 flex w-full items-center justify-between gap-6 border-b-2 bg-white bg-opacity-90 px-5 py-2 backdrop-blur-sm sm:px-4 sm:py-3">
         <div className="flex cursor-pointer items-center">
           <img src="/assets/logo.png" width={40} height={40} alt="logo" />
           <p className="ml-3 text-2xl font-medium">TransPod</p>
         </div>
-        <Link to={"/sign-in"} className="ml-auto">
+        <Link to={"/sign-in"} className="ml-auto hover:text-green-800">
           Sign in
         </Link>
-        <Button className="shad-button_ghost right-0" onClick={handleClick}>
-          Get Started
+        <Button className="shad-button_primary right-0" onClick={handleClick}>
+          Get started
         </Button>
       </div>
       <div className="flex max-w-4xl flex-col items-start px-7">

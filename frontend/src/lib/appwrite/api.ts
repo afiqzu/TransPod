@@ -15,7 +15,6 @@ export async function createUserAccount(user: INewUser) {
       accountId: newAccount.$id,
       name: newAccount.name,
       email: newAccount.email,
-      username: user.username,
     });
     return newUser;
   } catch (error) {
@@ -68,23 +67,38 @@ export async function getCurrentUser() {
 export async function signInAccount(user: { email: string; password: string }) {
   try {
     const session = await account.createEmailSession(user.email, user.password);
+    await checkRegisteredUser()
     return session;
   } catch (error) {
     console.log(error);
   }
 }
+
 
 export async function signOutAccount() {
   try {
     const session = await account.deleteSession("current");
+
     return session;
   } catch (error) {
     console.log(error);
   }
 }
 
+export async function createRecovery(email: string) {
+  await account.createRecovery(email, "http://localhost:5173/reset-password");
+}
+
+export async function resetPassword(
+  userId: string,
+  secret: string,
+  password: string,
+  confirmPassword: string,
+) {
+  await account.updateRecovery(userId, secret, password, confirmPassword);
+}
+
 export function signInWithGoogle() {
-  console.log("google");
   account.createOAuth2Session(
     "google",
     "http://localhost:5173/home",
@@ -106,15 +120,6 @@ export async function checkRegisteredUser() {
       name: session.name,
       email: session.email,
     });
-  }
-}
-
-export async function getProviderAccessToken() {
-  try {
-    const session = await account.getSession("current");
-    return session.providerAccessToken;
-  } catch (error) {
-    console.log(error);
   }
 }
 

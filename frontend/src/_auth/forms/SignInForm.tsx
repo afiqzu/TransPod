@@ -26,10 +26,9 @@ export const SignInForm = () => {
   const {
     mutateAsync: signInAccount,
     isPending: isSigningIn,
-    isSuccess,
+    isError,
   } = useSignInAccount();
 
-  // 1. Define your form.
   const form = useForm<z.infer<typeof SignInValidation>>({
     resolver: zodResolver(SignInValidation),
     defaultValues: {
@@ -38,7 +37,6 @@ export const SignInForm = () => {
     },
   });
 
-  // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof SignInValidation>) {
     const session = await signInAccount({
       email: values.email,
@@ -54,68 +52,75 @@ export const SignInForm = () => {
       form.reset();
       navigate("/");
     } else {
-      toast({ title: "Sign in failed. Please try again." });
+      toast({
+        title: "Sign in failed. Please try again.",
+        variant: "destructive",
+      });
     }
   }
 
   return (
-    <>
+    <div className="flex w-420 flex-col items-center justify-center gap-5 px-4">
+      <div className="flex gap-1">
+        <img src="/assets/logo.png" alt="logo" height={30} width={34} />
+        <p className="ml-1 text-3xl font-medium text-black">TransPod</p>
+      </div>
+      <h2 className=" mb-2 pt-0 text-2xl font-bold">Welcome back!</h2>
+      <OAuthButtons />
+      <div className="my-3 flex w-full items-center justify-center gap-3">
+        <Separator className="w-1/3 bg-light-4" />
+        <p className="text-gray-500">or</p>
+        <Separator className="w-1/3 bg-light-4" />
+      </div>
       <Form {...form}>
-        <div className="flex w-420 flex-col items-center justify-center px-4">
-          <div className="m-0 flex gap-1 p-0">
-            <img src="/assets/logo.png" alt="logo" height={30} width={34} />
-            <p className="m-0 ml-1 text-3xl font-medium text-black">TransPod</p>
-          </div>
-          <h2 className="mt-10 pt-0 text-2xl font-bold">Welcome back!</h2>
-
-          <form
-            onSubmit={form.handleSubmit(onSubmit)}
-            className="mt-4 flex w-full flex-col gap-5"
-          >
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email</FormLabel>
-                  <FormControl>
-                    <Input type="email" className="shad-input" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="password"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Password</FormLabel>
-                  <FormControl>
-                    <Input type="password" className="shad-input" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <Button type="submit" className="shad-button_primary">
-              {isSuccess || isSigningIn ? "Signing in..." : "Sign In"}
-            </Button>
-            <p className="text-small-regular mt-2 text-center text-dark-3">
-              Don't have an account?
-              <Link
-                to="/sign-up"
-                className="ml-2 font-medium text-tertiary-500"
-              >
-                Sign up
-              </Link>
-            </p>
-            <Separator className="mb-2 bg-light-4" />
-            <OAuthButtons />
-          </form>
-        </div>
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="flex w-full flex-col gap-5"
+        >
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input type="email" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="password"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Password</FormLabel>
+                <FormControl>
+                  <Input type="password" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button type="submit" className="shad-button_primary">
+            {isSigningIn ? "Signing in..." : isError ? "Sign In" : "Sign In"}
+          </Button>
+        </form>
       </Form>
-    </>
+      <Link
+        to="/recover-password"
+        className=" ml-2 self-center underline underline-offset-4"
+      >
+        Forgotten your password?
+      </Link>
+      <p className="text-center font-medium">
+        Don't have an account?
+        <Link to="/sign-up" className="ml-2 font-medium text-tertiary-500">
+          Sign up
+        </Link>
+      </p>
+    </div>
   );
 };
 

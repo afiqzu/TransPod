@@ -10,6 +10,8 @@ import Podcast from "@/_root/pages/Podcast.tsx";
 import Episode from "@/_root/pages/Episode.tsx";
 import Landing from "@/_auth/Landing.tsx";
 import "non.geist";
+import RecoverPassword from "@/_auth/forms/RecoverPassword.tsx";
+import ResetPassword from "@/_auth/forms/ResetPassword.tsx";
 
 function App() {
   return (
@@ -21,9 +23,12 @@ function App() {
           <Route index element={<Landing />} />
           <Route path="/sign-in" element={<SignInForm />} />
           <Route path="/sign-up" element={<SignUpForm />} />
+          <Route path="/recover-password" element={<RecoverPassword />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
         </Route>
 
         {/* private routes */}
+
         <Route element={<RootLayout />}>
           <Route path="/home" element={<Home />} />
           <Route path="/search/:term" element={<SearchResults />} />

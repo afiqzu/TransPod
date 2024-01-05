@@ -21,11 +21,11 @@ const Chat = () => {
   };
 
   return (
-    <div className="flex h-full flex-col overflow-scroll border-l-[1px] bg-white">
+    <div className="flex h-full flex-col overflow-auto border-l-[1px] bg-white">
       <div className="flex h-[50px] items-center border-b-2 px-3 py-4 text-sm font-medium">
         Chat
       </div>
-      <div className="overflow-scroll p-3">
+      <div className="overflow-auto p-3">
         {conversation.map((message, index) => (
           <ChatMessage key={index} message={message} />
         ))}

@@ -14,7 +14,7 @@
 
 @layer components {
     .shad-button_primary {
-        @apply flex gap-2 bg-green-700 text-[11px] font-bold text-light-1 hover:bg-green-800 sm:text-sm !important;
+        @apply flex gap-2 bg-green-700 text-sm font-bold text-light-1 hover:bg-green-800 !important;
     }
 
     .shad-button_ghost {
