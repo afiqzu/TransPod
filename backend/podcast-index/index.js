@@ -8,7 +8,7 @@ app.use(cors());
 
 
 // Initialize the Podcast Index API with environment variables
-const api = require('podcast-index-api')(process.env.PODCAST_INDEX_API_KEY, process.env.PODCAST_INDEX_API_SECRET);
+const api = require('podcast-index-api')(process.env.PODCAST_INDEX_API_KEY, process.env.PODCAST_INDEX_API_SECRET, process.env.PODCAST_INDEX_USER_AGENT);
 
 // Endpoint to search podcasts by term
 app.get('/search', async (req, res) => {
