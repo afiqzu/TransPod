@@ -1,12 +1,9 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
-import {
-  checkRegisteredUser,
-  getCurrentUser,
-} from "@/lib/appwrite/api";
+import { getCurrentUser } from "@/lib/appwrite/api";
 import { IContextType, IUser } from "@/types";
 
-export const INITIAL_USER = {
+const INITIAL_USER = {
   id: "",
   name: "",
   email: "",
@@ -16,9 +13,7 @@ const INITIAL_STATE = {
   user: INITIAL_USER,
   isLoading: false,
   isAuthenticated: false,
-  setUser: () => {},
-  setIsAuthenticated: () => {},
-  checkAuthUser: async () => false as boolean,
+  checkAuthUser: async () => false as boolean
 };
 
 const AuthContext = createContext<IContextType>(INITIAL_STATE);
@@ -30,7 +25,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const checkAuthUser = async () => {
     try {
-      await checkRegisteredUser();
       const currentAccount = await getCurrentUser();
       if (currentAccount) {
         setUser({
@@ -53,19 +47,24 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   useEffect(() => {
-    checkAuthUser();
+    (async () => {
+      try {
+        await checkAuthUser();
+      } catch (error) {
+        console.error("Failed to check auth user:", error);
+      }
+    })();
   }, []);
 
   const value = {
     user,
-    setUser,
     isLoading,
     isAuthenticated,
-    setIsAuthenticated,
     checkAuthUser,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useUserContext = () => useContext(AuthContext);

@@ -8,6 +8,11 @@ export const generateChatMessage = async (userInput: string) => {
   const completion = await openai.chat.completions.create({
     messages: [
       { role: "system", content: sampleTranscription },
+      {
+        role: "system",
+        content:
+          "When generating a transcript response, do not use in-text formatting such as using asterisks for bold text. when making a new line, ensure that you enter two newline spaces.",
+      },
       { role: "user", content: userInput },
     ],
     model: "gpt-3.5-turbo",
