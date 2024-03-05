@@ -3,6 +3,7 @@ import { EpisodeDetails } from "@/types";
 type LeftPodcastBarProps = {
   episode: EpisodeDetails;
 };
+
 const EpisodeInfo = ({ episode }: LeftPodcastBarProps) => {
   return (
     <div className="bottom-0 z-50 flex w-full border-t-2 bg-white p-3">

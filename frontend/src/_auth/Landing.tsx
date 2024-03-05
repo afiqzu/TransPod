@@ -24,7 +24,7 @@ const Landing = () => {
         </Button>
       </div>
       <div className="flex max-w-4xl flex-col items-start px-7">
-        <div className="text-start text-4xl font-bold sm:text-5xl">
+        <div className="text-start text-4xl font-bold sm:text-5xl tracking-tight">
           <span>Get more than just transcriptions with </span>
           <span className="text-green-700">TransPod.</span>
         </div>

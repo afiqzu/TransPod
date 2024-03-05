@@ -22,13 +22,13 @@ const TrendingCard = ({ id, image, title, author }: TrendingCardProps) => {
   return (
     <div
       ref={ref}
-      className="flex cursor-pointer flex-col rounded-md border-2 bg-white hover:scale-105 hover:transition-all"
+      className="flex cursor-pointer flex-col rounded-md drop-shadow-xl bg-stone-900 text-white hover:scale-105 hover:transition-all"
       onClick={handlePodcastClick}
     >
       <img
         src={image}
         alt={title}
-        className="min-h-[150px] min-w-[150px] rounded-t-md sm:min-h-[300px] sm:min-w-[300px]"
+        className="min-h-[200px] min-w-[200px] rounded-t-md sm:min-h-[250px] sm:min-w-[250px]"
       />
       <div className="px-4 pb-5 pt-3">
         <p className="line-clamp-2 self-start text-[18px] font-medium">

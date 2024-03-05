@@ -88,7 +88,6 @@ export async function getEpisodesById(id: string | undefined) {
     }
     const results = await response.json();
     const episode = results.episode;
-    console.log(episode);
     return {
       podcastName: episode.feedTitle,
       episodeId: episode.id,

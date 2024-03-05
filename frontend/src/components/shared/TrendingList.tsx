@@ -4,19 +4,19 @@ import TrendingCard, {
 import { PodcastTrending } from "@/types";
 import { useGetTrending } from "@/lib/tanstack-query/queriesAndMutations.ts";
 
-const TrendingGrid = () => {
+const TrendingList = () => {
   const { data: trending, isPending } = useGetTrending();
   const numberOfSkeletons = 12;
 
   return (
-    <div className="flex w-full max-h-max bg-black pb-[70px] pt-10">
+    <div className="flex w-full max-h-max pb-[70px]">
       {isPending ? (
         Array.from({ length: numberOfSkeletons }, (_, index) => (
           <TrendingCardSkeleton key={index} />
         ))
       ) : (
         <div className="flex w-full flex-col">
-          <div className="mb-3 flex w-3/4 self-center px-4 text-2xl font-medium tracking-tight text-white">
+          <div className="mb-1 flex w-3/4 max-w-7xl self-center text-2xl font-medium tracking-tight">
             Trending podcasts
           </div>
           <div className="group flex gap-5 overflow-hidden">
@@ -51,4 +51,4 @@ const TrendingGrid = () => {
     </div>
   );
 };
-export default TrendingGrid;
+export default TrendingList;

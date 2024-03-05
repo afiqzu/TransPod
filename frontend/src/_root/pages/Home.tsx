@@ -1,4 +1,4 @@
-import TrendingGrid from "@/components/shared/TrendingGrid.tsx";
+import TrendingList from "@/components/shared/TrendingList.tsx";
 import { useInView } from "react-intersection-observer";
 import { SearchField } from "@/components/shared/SearchField.tsx";
 import SearchSuggestions from "@/components/shared/SearchSuggestions.tsx";
@@ -10,7 +10,7 @@ const Home = () => {
   });
 
   return (
-    <div className="ml-auto mr-auto flex flex-col items-center bg-white">
+    <div className="ml-auto mr-auto pb-10 flex flex-col items-center bg-white">
       <div className="flex h-[700px] w-3/4 flex-col items-center justify-center gap-5 px-4">
         <div className="w-full max-w-4xl">
           <SearchField inTopbar={false} />
@@ -25,7 +25,7 @@ const Home = () => {
             inView ? "animate-fadein opacity-100" : "opacity-0"
           }`}
         >
-          <TrendingGrid />
+          <TrendingList />
         </div>
       </div>
     </div>

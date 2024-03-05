@@ -29,6 +29,7 @@ const SideBar = () => {
   const handleSignOut = () => {
     signOut();
     toast({
+      variant: 'default',
       title: "Signing out...",
     });
   };
