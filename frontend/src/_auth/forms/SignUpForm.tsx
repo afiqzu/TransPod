@@ -46,7 +46,7 @@ export const SignUpForm = () => {
     const newUser = await createUserAccount(values);
 
     if (!newUser) {
-      return toast({ title: "Sign up failed. Please try again." });
+      return toast({ title: "Sign up failed. Please try again.", variant: "destructive"});
     }
 
     const session = await signInAccount({
