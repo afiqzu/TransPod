@@ -14,4 +14,16 @@ const LoadingScreen = () => {
     </div>
   );
 };
+
+export const LoadingSpinner = () => {
+  return (
+    <l-ring
+      size="14"
+      stroke="2"
+      bg-opacity="0"
+      speed="2"
+      color="white"
+    ></l-ring>
+  );
+};
 export default LoadingScreen;
