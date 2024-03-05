@@ -28,7 +28,6 @@ function App() {
         </Route>
 
         {/* private routes */}
-
         <Route element={<RootLayout />}>
           <Route path="/home" element={<Home />} />
           <Route path="/search/:term" element={<SearchResults />} />
