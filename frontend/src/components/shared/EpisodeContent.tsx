@@ -11,7 +11,7 @@ import { sampleTranscription } from "@/lib/utils.ts";
 const EpisodeContent = () => {
   ring.register();
 
-  const { isPending: isGettingTranscription } =
+  const { data: summary, isPending: isGettingTranscription } =
     useGetSummary(sampleTranscription);
 
   return (
@@ -39,8 +39,8 @@ const EpisodeContent = () => {
                 ></l-ring>
               </div>
             ) : (
-              // <div>{summary && summary.content}</div>
-              <div>Summary</div>
+              <div>{summary && summary.content}</div>
+              //<div>Summary</div>
             )}
           </TabsContent>
         </div>
