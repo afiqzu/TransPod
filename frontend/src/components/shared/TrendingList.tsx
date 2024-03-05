@@ -9,7 +9,7 @@ const TrendingGrid = () => {
   const numberOfSkeletons = 12;
 
   return (
-    <div className="flex w-full bg-black pb-[70px] pt-10">
+    <div className="flex w-full max-h-max bg-black pb-[70px] pt-10">
       {isPending ? (
         Array.from({ length: numberOfSkeletons }, (_, index) => (
           <TrendingCardSkeleton key={index} />
